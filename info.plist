@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.liucheng.today</string>
+	<key>connections</key>
+	<dict>
+		<key>65F275D5-3D1B-49C2-8DB1-6C18B1F99C8D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ABEAC640-202C-4B59-9C82-49BA7ECB2F8D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Cheng Liu</string>
+	<key>description</key>
+	<string>Get Today Date</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Today Date</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>tod</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>1</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>plz wait</string>
+				<key>script</key>
+				<string>require 'json'
+
+t = Time.now.strftime("%d %b, %Y")
+
+def alfred_output(title:, subtitle:, arg:)
+  {
+    items: [
+      {
+        title: title,
+        subtitle: subtitle,
+        arg: arg,
+        icon: 'icon.png'
+      }
+    ]
+  }.to_json
+end
+
+print alfred_output(
+  title: "Today Time: #{t}", 
+  subtitle: "press Enter to copy",
+  arg: t
+)</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>get today date string</string>
+				<key>type</key>
+				<integer>2</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>65F275D5-3D1B-49C2-8DB1-6C18B1F99C8D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>ABEAC640-202C-4B59-9C82-49BA7ECB2F8D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>65F275D5-3D1B-49C2-8DB1-6C18B1F99C8D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>160</integer>
+			<key>ypos</key>
+			<integer>90</integer>
+		</dict>
+		<key>ABEAC640-202C-4B59-9C82-49BA7ECB2F8D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>370</integer>
+			<key>ypos</key>
+			<integer>90</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
